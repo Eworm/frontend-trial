@@ -39,7 +39,7 @@ gulp.task('compass', function() {
 
 // Inline css
 gulp.task('smoosher', function () {
-    gulp.src('./src/index.php')
+    gulp.src('src/index.php')
         .pipe(plugins.smoosher())
         .pipe(gulp.dest('.'));
 });
@@ -47,7 +47,7 @@ gulp.task('smoosher', function () {
 
 // Minify html
 gulp.task('minify', function() {
-    return gulp.src('./index.php')
+    return gulp.src('index.php')
         .pipe(plugins.htmlmin({collapseWhitespace: true}))
         .pipe(gulp.dest('.'))
 });

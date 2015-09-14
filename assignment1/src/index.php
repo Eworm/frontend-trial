@@ -97,7 +97,7 @@ function safe($value, $doubleEncode = true) { return htmlspecialchars( (string) 
                     </div>
                     
                     <div class="dbreview-rating-reviews">
-                	    Op basis van <?php echo $apiData->review_count ?> reviews
+                	    Op basis van&nbsp;<?php echo $apiData->review_count ?>&nbsp;reviews
                 	</div>
         
                 </div>
