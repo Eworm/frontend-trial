@@ -1,13 +1,18 @@
 <?php
 $apiData = (object) ['name' => '<HNK> Hoofddorp', 'rating' => 8.1, 'review_count' => 50, 'url' => 'https://www.deskbookers.com/nl-nl/hoofddorp/hnk-hoofddorp'];
 function safe($value, $doubleEncode = true) { return htmlspecialchars( (string) $value, ENT_QUOTES, 'utf-8', $doubleEncode); }
+
+$x = round($apiData->rating)/2
 ?>
 <!DOCTYPE html>
 <html lang="nl">
     
 	<head>
 		<meta charset="utf-8">
-		<title></title>
+		<title>
+		    Wat andere mensen van <?php echo safe($apiData->name) ?> vinden - Deskbookers
+		</title>
+		<meta name="description" content="">
 		
 		<!-- Mobile viewport optimized: h5bp.com/viewport -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,9 +30,11 @@ function safe($value, $doubleEncode = true) { return htmlspecialchars( (string) 
         
 	</head>
 	
-	<body>
+	<body itemscope itemtype="http://schema.org/Place">
     	
-    	<div class="dbreview-container">
+    	<div class="dbreview-container" itemprop="review" itemscope itemtype="http://schema.org/Review">
+        	
+            <meta itemprop="author" content="Deskbookers">
         	
             <header>
                 
@@ -41,11 +48,17 @@ function safe($value, $doubleEncode = true) { return htmlspecialchars( (string) 
     	
             	<div class="dbreview-rating">
                     
-                    <div class="dbreview-rating-stars">
+                    <div class="dbreview-rating-stars" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+                        
+                        <meta itemprop="bestRating" content="5">
+                        <meta itemprop="worstRating" content="0">
+                        <meta itemprop="ratingValue" content="<?php echo $x ?>">
+                        <meta itemprop="reviewCount" content="<?php echo $apiData->review_count ?>">
                         
                     	<svg class="dvreview-icon" version="1.1" id="DB" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                         	 width="117.688px" height="117.521px" viewBox="0 0 117.688 117.521" enable-background="new 0 0 117.688 117.521"
                         	 xml:space="preserve">
+                        	 <title>Deskbookers</title>
                             <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="0.2979" y1="58.7573" x2="117.4082" y2="58.7573">
                             	<stop  offset="0" style="stop-color:#464291"/>
                             	<stop  offset="0.5393" style="stop-color:#393A73"/>
@@ -67,20 +80,20 @@ function safe($value, $doubleEncode = true) { return htmlspecialchars( (string) 
                             	c-3.086-4.012-4.629-9.207-4.629-15.586c0-6.375,1.543-11.571,4.629-15.582c3.086-4.012,7.047-6.016,11.879-6.016
                             	c2.675,0,4.937,0.516,6.789,1.543c2.16,1.234,3.808,2.828,4.937,4.781V37.002C46.603,35.565,47.115,34.331,48.142,33.299z"/>
                         </svg>
-            	
-                        <?php $x = round($apiData->rating)/2 ?>
                         
                         <?php for($a = 0; $a < 5; $a++) { ?>
                         
                             <?php if ($a < $x) { ?>
                         
                                 <svg class="dbreview-rating-star" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="37.82px" height="35.969px" viewBox="0 0 37.82 35.969" enable-background="new 0 0 37.82 35.969" xml:space="preserve">
+                                    <title>Gevulde ster</title>
                                     <polygon fill="#FFB400" points="18.91,0 24.753,11.84 37.82,13.738 28.364,22.956 30.597,35.969 18.91,29.825 7.223,35.969 9.455,22.956 0,13.738 13.066,11.84 "/>
                                 </svg>
                             
                             <?php } else { ?>
                                 
                                 <svg class="dbreview-rating-star" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="37.82px" height="35.969px" viewBox="0 0 37.82 35.969" enable-background="new 0 0 37.82 35.969" xml:space="preserve">
+                                    <title>Lege ster</title>
                                     <polygon fill="#ffffff" stroke="#FFB400" points="18.91,0 24.753,11.84 37.82,13.738 28.364,22.956 30.597,35.969 18.91,29.825 7.223,35.969 9.455,22.956 0,13.738 13.066,11.84 "/>
                                 </svg>
                             
@@ -112,6 +125,7 @@ function safe($value, $doubleEncode = true) { return htmlspecialchars( (string) 
                     <svg class="dbreviews-logo" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                     	 width="246.089px" height="31.789px" viewBox="0 0 246.089 31.789" enable-background="new 0 0 246.089 31.789"
                     	 xml:space="preserve">
+                    	 <title>Deskbookers</title>
                 		<path fill="#BCBBBB" d="M108.957,6.629c-1.577,0-2.91,0.304-4.002,0.908c-1.273,0.727-2.244,1.667-2.91,2.814V3.085
                 			c0-0.846-0.303-1.572-0.908-2.177C100.528,0.303,99.8,0,98.953,0h-3.092v20.798c0,4.3,1.241,7.206,3.728,8.72
                 			c2.486,1.513,5.185,2.271,8.095,2.271c1.515,0,3.046-0.26,4.593-0.772c1.545-0.516,2.772-1.348,3.681-2.499
