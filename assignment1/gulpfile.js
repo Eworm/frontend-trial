@@ -37,10 +37,19 @@ gulp.task('compass', function() {
 });
 
 
-// SCSS lint
-gulp.task('lint', function() {
-    gulp.src(src_paths.compass)
-        .pipe(plugins.scssLint())
+// Inline css
+gulp.task('smoosher', function () {
+    gulp.src('./src/index.php')
+        .pipe(plugins.smoosher())
+        .pipe(gulp.dest('.'));
+});
+
+
+// Minify html
+gulp.task('minify', function() {
+    return gulp.src('./index.php')
+        .pipe(plugins.htmlmin({collapseWhitespace: true}))
+        .pipe(gulp.dest('.'))
 });
 
 
