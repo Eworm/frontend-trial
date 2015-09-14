@@ -48,7 +48,10 @@ gulp.task('smoosher', function () {
 // Minify html
 gulp.task('minify', function() {
     return gulp.src('index.php')
-        .pipe(plugins.htmlmin({collapseWhitespace: true}))
+        .pipe(plugins.htmlmin({
+            collapseWhitespace: true,
+            removeComments: true
+        }))
         .pipe(gulp.dest('.'))
 });
 
