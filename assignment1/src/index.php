@@ -19,7 +19,9 @@ function safe($value, $doubleEncode = true) { return htmlspecialchars( (string) 
         <!-- Removing the highlight for mobile IE10. Stupid to make this a meta tag instead of a css property -->
         <meta name="msapplication-tap-highlight" content="no">
         
-        <link rel="stylesheet" href="css/style.css" media="screen">
+        <!-- smoosh -->
+        <link rel="stylesheet" href="../css/style.css" media="screen">
+        <!-- endsmoosh -->
         
 	</head>
 	
