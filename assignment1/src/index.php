@@ -10,7 +10,7 @@ $x = round($apiData->rating)/2
 	<head>
 		<meta charset="utf-8">
 		<title>
-		    Wat andere mensen van <?php echo safe($apiData->name) ?> vinden - Deskbookers
+		    Wat andere mensen van&nbsp;<?php echo safe($apiData->name) ?>&nbsp; vinden - Deskbookers
 		</title>
 		<meta name="description" content="">
 		
